@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ProductListCell">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="工作中心" translatesAutoresizingMaskIntoConstraints="NO" id="jdw-hd-foZ">
+                        <rect key="frame" x="15" y="5" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="XUe-Ai-3vL"/>
+                            <constraint firstAttribute="height" constant="60" id="rAX-bY-5r6"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作中心" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1a-Cu-MIM">
+                        <rect key="frame" x="83" y="12" width="150" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="T9Q-07-vjD"/>
+                            <constraint firstAttribute="width" constant="150" id="z4a-ZF-mmR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="版本：2.0.0911.1003" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meB-DS-k6W">
+                        <rect key="frame" x="83" y="32" width="150" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="A5k-eE-HQU"/>
+                            <constraint firstAttribute="width" constant="150" id="wsQ-mh-ubd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="jdw-hd-foZ" secondAttribute="centerY" id="DGO-aQ-vbC"/>
+                    <constraint firstItem="jdw-hd-foZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="WEb-22-oa1"/>
+                    <constraint firstItem="meB-DS-k6W" firstAttribute="leading" secondItem="B1a-Cu-MIM" secondAttribute="leading" id="dD8-Lj-LAk"/>
+                    <constraint firstItem="B1a-Cu-MIM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="mFb-wh-2jC"/>
+                    <constraint firstItem="meB-DS-k6W" firstAttribute="top" secondItem="B1a-Cu-MIM" secondAttribute="bottom" constant="4" id="nip-t0-gxv"/>
+                    <constraint firstItem="jdw-hd-foZ" firstAttribute="top" secondItem="B1a-Cu-MIM" secondAttribute="top" id="qb0-wR-6dR"/>
+                    <constraint firstItem="B1a-Cu-MIM" firstAttribute="leading" secondItem="jdw-hd-foZ" secondAttribute="trailing" constant="8" id="rWJ-Pu-alE"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="qb0-wR-6dR"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="iconImageView" destination="jdw-hd-foZ" id="aF7-hU-L4h"/>
+                <outlet property="nameLabel" destination="B1a-Cu-MIM" id="zjX-LX-yrR"/>
+                <outlet property="versionLabel" destination="meB-DS-k6W" id="F2R-mq-dv9"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="工作中心" width="152" height="152"/>
+    </resources>
+</document>
