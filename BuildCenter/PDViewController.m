@@ -20,15 +20,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *downloadBtn;
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
 @property (weak, nonatomic) IBOutlet UITableView *rightTableView;
+@property (weak, nonatomic) IBOutlet UIImageView *headerIconImageView;
+@property (weak, nonatomic) IBOutlet UIButton *headerDownLoadButton;
+
 
 @property (nonatomic, strong) PDLeftTableViewProtocol  *leftProtocol;
 @property (nonatomic, strong) PDRightTableViewProtocol *rightProtocol;
 
 @property (nonatomic, strong) NSArray *products;
 @property (nonatomic, strong) NSArray *historyBuilds;
-@property (weak, nonatomic) IBOutlet UIImageView *headerIconImageView;
-@property (weak, nonatomic) IBOutlet UIButton *headerDownLoadButton;
+
 @property (nonatomic, assign) NSInteger index;
+
 
 @end
 
@@ -87,6 +90,9 @@
     _products = [Product objectArrayWithKeyValuesArray:dataArray];
     self.leftProtocol.products = _products;
     [self.leftTableView reloadData];
+    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.leftTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
+    [self leftViewClickAtIndex:0];
     
     
   } failure:^void(AFHTTPRequestOperation * operation, NSError * error) {
