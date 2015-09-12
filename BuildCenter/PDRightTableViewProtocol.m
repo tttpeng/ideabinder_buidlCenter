@@ -1,16 +1,16 @@
 //
-//  RightTableViewProtocol.m
+//  PDRightTableViewProtocol.m
 //  BuildCenter
 //
 //  Created by Peng Tao on 15/9/11.
 //  Copyright (c) 2015年 Peng Tao. All rights reserved.
 //
 
-#import "RightTableViewProtocol.h"
-#import "ProductVersionCell.h"
+#import "PDRightTableViewProtocol.h"
+#import "PDProductVersionCell.h"
 #import "Product.h"
 
-@implementation RightTableViewProtocol
+@implementation PDRightTableViewProtocol
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -32,7 +32,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   
-  ProductVersionCell *cell = [ProductVersionCell cellWithTableView:tableView];
+  PDProductVersionCell *cell = [PDProductVersionCell cellWithTableView:tableView];
   
   Product *product = _historyBuilds[indexPath.row + 1];
   cell.versionLabel.text = product.appVersionNo;

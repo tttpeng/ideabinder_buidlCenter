@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface PDViewController : UIViewController
 
 
 - (void)leftViewClickAtIndex:(NSInteger)index;

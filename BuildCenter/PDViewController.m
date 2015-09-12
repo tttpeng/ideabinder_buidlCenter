@@ -6,24 +6,23 @@
 //  Copyright (c) 2015年 Peng Tao. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "PDViewController.h"
 
-#import "LeftTableViewProtocol.h"
-#import "RightTableViewProtocol.h"
-#import "DetailHeaderView.h"
+#import "PDLeftTableViewProtocol.h"
+#import "PDRightTableViewProtocol.h"
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "Product.h"
 
 #import "UIImageView+WebCache.h"
 
-@interface ViewController ()
+@interface PDViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *downloadBtn;
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
 @property (weak, nonatomic) IBOutlet UITableView *rightTableView;
 
-@property (nonatomic, strong) LeftTableViewProtocol  *leftProtocol;
-@property (nonatomic, strong) RightTableViewProtocol *rightProtocol;
+@property (nonatomic, strong) PDLeftTableViewProtocol  *leftProtocol;
+@property (nonatomic, strong) PDRightTableViewProtocol *rightProtocol;
 
 @property (nonatomic, strong) NSArray *products;
 @property (nonatomic, strong) NSArray *historyBuilds;
@@ -33,7 +32,7 @@
 
 @end
 
-@implementation ViewController
+@implementation PDViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -146,19 +145,19 @@
 #pragma mark -
 #pragma mark - Properties
 
-- (LeftTableViewProtocol *)leftProtocol
+- (PDLeftTableViewProtocol *)leftProtocol
 {
   if (!_leftProtocol) {
-    _leftProtocol = [[LeftTableViewProtocol alloc] init];
+    _leftProtocol = [[PDLeftTableViewProtocol alloc] init];
     _leftProtocol.controller = self;
   }
   return _leftProtocol;
 }
 
-- (RightTableViewProtocol *)rightProtocol
+- (PDRightTableViewProtocol *)rightProtocol
 {
   if (!_rightProtocol) {
-    _rightProtocol = [[RightTableViewProtocol alloc] init];
+    _rightProtocol = [[PDRightTableViewProtocol alloc] init];
   }
   return _rightProtocol;
 }

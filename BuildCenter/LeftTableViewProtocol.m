@@ -1,18 +1,18 @@
 //
-//  LeftTableViewProtocol.m
+//  PDLeftTableViewProtocol.m
 //  BuildCenter
 //
 //  Created by Peng Tao on 15/9/11.
 //  Copyright (c) 2015年 Peng Tao. All rights reserved.
 //
 
-#import "LeftTableViewProtocol.h"
+#import "PDLeftTableViewProtocol.h"
 
-#import "ProductListCell.h"
+#import "PDProductListCell.h"
 #import "Product.h"
 #import "UIImageView+WebCache.h"
 
-@implementation LeftTableViewProtocol
+@implementation PDLeftTableViewProtocol
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -34,7 +34,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   
-  ProductListCell *cell = [ProductListCell cellWithTableView:tableView];
+  PDProductListCell *cell = [PDProductListCell cellWithTableView:tableView];
   
   Product *product    = _products[indexPath.row];
   cell.nameLabel.text = product.appName;

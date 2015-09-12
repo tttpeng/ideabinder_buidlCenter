@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductVersionCell : UITableViewCell
+@interface PDProductVersionCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 Peng Tao. All rights reserved.
 //
 
-#import "ProductVersionCell.h"
+#import "PDProductVersionCell.h"
 
-@implementation ProductVersionCell
+@implementation PDProductVersionCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -24,11 +24,11 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
-  static NSString *identifier = @"ProductVersionCell";
-  ProductVersionCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+  static NSString *identifier = @"PDProductVersionCell";
+  PDProductVersionCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
   if (!cell) {
-    cell = [[ProductVersionCell alloc] init];
-    cell = [[NSBundle mainBundle] loadNibNamed:@"ProductVersionCell" owner:nil options:nil][0];
+    cell = [[PDProductVersionCell alloc] init];
+    cell = [[NSBundle mainBundle] loadNibNamed:@"PDProductVersionCell" owner:nil options:nil][0];
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
   }
   return cell;

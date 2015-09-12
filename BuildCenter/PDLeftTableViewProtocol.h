@@ -1,5 +1,5 @@
 //
-//  RightTableViewProtocol.h
+//  PDLeftTableViewProtocol.h
 //  BuildCenter
 //
 //  Created by Peng Tao on 15/9/11.
@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "PDViewController.h"
 
-@interface RightTableViewProtocol : NSObject
+@interface PDLeftTableViewProtocol : NSObject
 <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) NSArray *products;
 
-@property (nonatomic, strong) NSArray *historyBuilds;
+
+@property (nonatomic, weak) PDViewController *controller;
 
 @end
