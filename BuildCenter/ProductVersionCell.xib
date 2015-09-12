@@ -42,6 +42,9 @@
                     <constraint firstItem="lOM-CM-HBs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="29" id="eU5-mb-7k2"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="versionLabel" destination="lOM-CM-HBs" id="Bzj-dJ-pOg"/>
+            </connections>
             <point key="canvasLocation" x="561" y="421.5"/>
         </tableViewCell>
     </objects>

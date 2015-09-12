@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Build&#x63a8;&#x9001;.xcodeproj">
+      location = "self:/Users/taopeng/ideabinder_buidlCenter/BuildCenter.xcodeproj">
    </FileRef>
 </Workspace>

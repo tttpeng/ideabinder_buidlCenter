@@ -13,7 +13,7 @@
 		774A8BB21BA17688001184D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 774A8BB01BA17688001184D3 /* Main.storyboard */; };
 		774A8BB41BA17688001184D3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A8BB31BA17688001184D3 /* Images.xcassets */; };
 		774A8BB71BA17688001184D3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 774A8BB51BA17688001184D3 /* LaunchScreen.xib */; };
-		774A8BC31BA17688001184D3 /* Build__Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 774A8BC21BA17688001184D3 /* Build__Tests.m */; };
+		774A8BC31BA17688001184D3 /* BuildCenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 774A8BC21BA17688001184D3 /* BuildCenterTests.m */; };
 		774A8BCF1BA178F1001184D3 /* libPushSDK-1.8.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A8BCE1BA178F1001184D3 /* libPushSDK-1.8.5.a */; };
 		774A8BD11BA1790F001184D3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A8BD01BA1790F001184D3 /* CFNetwork.framework */; };
 		774A8BD31BA17940001184D3 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774A8BD21BA17940001184D3 /* PushConfig.plist */; };
@@ -81,7 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		774A8BA31BA17688001184D3 /* Build推送.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Build推送.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		774A8BA31BA17688001184D3 /* BuildCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		774A8BA71BA17688001184D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774A8BA81BA17688001184D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		774A8BAA1BA17688001184D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,9 +91,9 @@
 		774A8BB11BA17688001184D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		774A8BB31BA17688001184D3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		774A8BB61BA17688001184D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		774A8BBC1BA17688001184D3 /* Build推送Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Build推送Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		774A8BBC1BA17688001184D3 /* BuildCenterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildCenterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		774A8BC11BA17688001184D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		774A8BC21BA17688001184D3 /* Build__Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Build__Tests.m; sourceTree = "<group>"; };
+		774A8BC21BA17688001184D3 /* BuildCenterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildCenterTests.m; sourceTree = "<group>"; };
 		774A8BCD1BA178F1001184D3 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
 		774A8BCE1BA178F1001184D3 /* libPushSDK-1.8.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.5.a"; sourceTree = "<group>"; };
 		774A8BD01BA1790F001184D3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -225,29 +225,23 @@
 		774A8B9A1BA17688001184D3 = {
 			isa = PBXGroup;
 			children = (
-				774A8BDE1BA18168001184D3 /* libz.dylib */,
-				774A8BDC1BA1815E001184D3 /* Security.framework */,
-				774A8BDA1BA18153001184D3 /* CoreGraphics.framework */,
-				774A8BD81BA18149001184D3 /* SystemConfiguration.framework */,
-				774A8BD61BA1813F001184D3 /* CoreTelephony.framework */,
-				774A8BD41BA18135001184D3 /* CoreFoundation.framework */,
-				774A8BD01BA1790F001184D3 /* CFNetwork.framework */,
-				774A8BA51BA17688001184D3 /* Build推送 */,
-				774A8BBF1BA17688001184D3 /* Build推送Tests */,
+				774A8BA51BA17688001184D3 /* BuildCenter */,
 				774A8BA41BA17688001184D3 /* Products */,
+				776099A31BA429E9009FEFD3 /* Framework */,
+				774A8BBF1BA17688001184D3 /* BuildCenterTests */,
 			);
 			sourceTree = "<group>";
 		};
 		774A8BA41BA17688001184D3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				774A8BA31BA17688001184D3 /* Build推送.app */,
-				774A8BBC1BA17688001184D3 /* Build推送Tests.xctest */,
+				774A8BA31BA17688001184D3 /* BuildCenter.app */,
+				774A8BBC1BA17688001184D3 /* BuildCenterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		774A8BA51BA17688001184D3 /* Build推送 */ = {
+		774A8BA51BA17688001184D3 /* BuildCenter */ = {
 			isa = PBXGroup;
 			children = (
 				774A8BCC1BA178F1001184D3 /* lib */,
@@ -275,7 +269,7 @@
 				774A8BB51BA17688001184D3 /* LaunchScreen.xib */,
 				774A8BA61BA17688001184D3 /* Supporting Files */,
 			);
-			path = "Build推送";
+			path = BuildCenter;
 			sourceTree = "<group>";
 		};
 		774A8BA61BA17688001184D3 /* Supporting Files */ = {
@@ -291,14 +285,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		774A8BBF1BA17688001184D3 /* Build推送Tests */ = {
+		774A8BBF1BA17688001184D3 /* BuildCenterTests */ = {
 			isa = PBXGroup;
 			children = (
-				774A8BC21BA17688001184D3 /* Build__Tests.m */,
+				774A8BC21BA17688001184D3 /* BuildCenterTests.m */,
 				774A8BC01BA17688001184D3 /* Supporting Files */,
 			);
-			path = "Build推送Tests";
-			sourceTree = "<group>";
+			path = BuildCenterTests;
+			sourceTree = SOURCE_ROOT;
 		};
 		774A8BC01BA17688001184D3 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -315,6 +309,20 @@
 				774A8BCE1BA178F1001184D3 /* libPushSDK-1.8.5.a */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		776099A31BA429E9009FEFD3 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				774A8BDE1BA18168001184D3 /* libz.dylib */,
+				774A8BDC1BA1815E001184D3 /* Security.framework */,
+				774A8BDA1BA18153001184D3 /* CoreGraphics.framework */,
+				774A8BD81BA18149001184D3 /* SystemConfiguration.framework */,
+				774A8BD61BA1813F001184D3 /* CoreTelephony.framework */,
+				774A8BD41BA18135001184D3 /* CoreFoundation.framework */,
+				774A8BD01BA1790F001184D3 /* CFNetwork.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 		77D619BB1BA2B2E6004B7096 /* MJExtension */ = {
@@ -416,9 +424,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		774A8BA21BA17688001184D3 /* Build推送 */ = {
+		774A8BA21BA17688001184D3 /* BuildCenter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 774A8BC61BA17688001184D3 /* Build configuration list for PBXNativeTarget "Build推送" */;
+			buildConfigurationList = 774A8BC61BA17688001184D3 /* Build configuration list for PBXNativeTarget "BuildCenter" */;
 			buildPhases = (
 				774A8B9F1BA17688001184D3 /* Sources */,
 				774A8BA01BA17688001184D3 /* Frameworks */,
@@ -428,14 +436,14 @@
 			);
 			dependencies = (
 			);
-			name = "Build推送";
+			name = BuildCenter;
 			productName = "Build推送";
-			productReference = 774A8BA31BA17688001184D3 /* Build推送.app */;
+			productReference = 774A8BA31BA17688001184D3 /* BuildCenter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		774A8BBB1BA17688001184D3 /* Build推送Tests */ = {
+		774A8BBB1BA17688001184D3 /* BuildCenterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 774A8BC91BA17688001184D3 /* Build configuration list for PBXNativeTarget "Build推送Tests" */;
+			buildConfigurationList = 774A8BC91BA17688001184D3 /* Build configuration list for PBXNativeTarget "BuildCenterTests" */;
 			buildPhases = (
 				774A8BB81BA17688001184D3 /* Sources */,
 				774A8BB91BA17688001184D3 /* Frameworks */,
@@ -446,9 +454,9 @@
 			dependencies = (
 				774A8BBE1BA17688001184D3 /* PBXTargetDependency */,
 			);
-			name = "Build推送Tests";
+			name = BuildCenterTests;
 			productName = "Build推送Tests";
-			productReference = 774A8BBC1BA17688001184D3 /* Build推送Tests.xctest */;
+			productReference = 774A8BBC1BA17688001184D3 /* BuildCenterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -474,7 +482,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 774A8B9E1BA17688001184D3 /* Build configuration list for PBXProject "Build推送" */;
+			buildConfigurationList = 774A8B9E1BA17688001184D3 /* Build configuration list for PBXProject "BuildCenter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -487,8 +495,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				774A8BA21BA17688001184D3 /* Build推送 */,
-				774A8BBB1BA17688001184D3 /* Build推送Tests */,
+				774A8BA21BA17688001184D3 /* BuildCenter */,
+				774A8BBB1BA17688001184D3 /* BuildCenterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -574,7 +582,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774A8BC31BA17688001184D3 /* Build__Tests.m in Sources */,
+				774A8BC31BA17688001184D3 /* BuildCenterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,7 +591,7 @@
 /* Begin PBXTargetDependency section */
 		774A8BBE1BA17688001184D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 774A8BA21BA17688001184D3 /* Build推送 */;
+			target = 774A8BA21BA17688001184D3 /* BuildCenter */;
 			targetProxy = 774A8BBD1BA17688001184D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -695,13 +703,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: peng tao (28A8PAGDV4)";
-				INFOPLIST_FILE = "Build推送/Info.plist";
+				INFOPLIST_FILE = BuildCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Build推送/lib",
+					"$(PROJECT_DIR)/BuildCenter/lib",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BuildCenter;
 				PROVISIONING_PROFILE = "15bb3fc3-ad1a-49f5-a6e4-06bb7457c432";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -713,13 +721,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Build推送/Info.plist";
+				INFOPLIST_FILE = BuildCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Build推送/lib",
+					"$(PROJECT_DIR)/BuildCenter/lib",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BuildCenter;
 				PROVISIONING_PROFILE = "15bb3fc3-ad1a-49f5-a6e4-06bb7457c432";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -737,10 +745,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Build推送Tests/Info.plist";
+				INFOPLIST_FILE = BuildCenterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Build推送.app/Build推送";
+				PRODUCT_NAME = BuildCenterTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BuildCenter.app/BuildCenter";
 			};
 			name = Debug;
 		};
@@ -752,17 +760,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Build推送Tests/Info.plist";
+				INFOPLIST_FILE = BuildCenterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Build推送.app/Build推送";
+				PRODUCT_NAME = BuildCenterTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BuildCenter.app/BuildCenter";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		774A8B9E1BA17688001184D3 /* Build configuration list for PBXProject "Build推送" */ = {
+		774A8B9E1BA17688001184D3 /* Build configuration list for PBXProject "BuildCenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				774A8BC41BA17688001184D3 /* Debug */,
@@ -771,7 +779,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		774A8BC61BA17688001184D3 /* Build configuration list for PBXNativeTarget "Build推送" */ = {
+		774A8BC61BA17688001184D3 /* Build configuration list for PBXNativeTarget "BuildCenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				774A8BC71BA17688001184D3 /* Debug */,
@@ -780,7 +788,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		774A8BC91BA17688001184D3 /* Build configuration list for PBXNativeTarget "Build推送Tests" */ = {
+		774A8BC91BA17688001184D3 /* Build configuration list for PBXNativeTarget "BuildCenterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				774A8BCA1BA17688001184D3 /* Debug */,

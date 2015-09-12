@@ -1,6 +1,6 @@
 //
 //  Build__Tests.m
-//  Build推送Tests
+//  BuildCenterTests
 //
 //  Created by Peng Tao on 15/9/10.
 //  Copyright (c) 2015年 Peng Tao. All rights reserved.
@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface Build__Tests : XCTestCase
+@interface BuildCenterTests : XCTestCase
 
 @end
 
-@implementation Build__Tests
+@implementation BuildCenterTests
 
 - (void)setUp {
     [super setUp];

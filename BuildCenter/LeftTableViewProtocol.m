@@ -1,6 +1,6 @@
 //
 //  LeftTableViewProtocol.m
-//  Build推送
+//  BuildCenter
 //
 //  Created by Peng Tao on 15/9/11.
 //  Copyright (c) 2015年 Peng Tao. All rights reserved.
@@ -48,6 +48,14 @@
   cell.versionLabel.text = product.appVersion;
   
   return cell;
+  
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  
+  [self.controller leftViewClickAtIndex:indexPath.row];
   
 }
 
