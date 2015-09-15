@@ -23,6 +23,8 @@
 		774A8BDB1BA18153001184D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A8BDA1BA18153001184D3 /* CoreGraphics.framework */; };
 		774A8BDD1BA1815E001184D3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A8BDC1BA1815E001184D3 /* Security.framework */; };
 		774A8BDF1BA18168001184D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 774A8BDE1BA18168001184D3 /* libz.dylib */; };
+		775644721BA8329800147751 /* PDProductViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 775644711BA8329800147751 /* PDProductViewModel.m */; };
+		775644761BA8330100147751 /* PDProductServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 775644751BA8330100147751 /* PDProductServiceManager.m */; };
 		776099B31BA441A3009FEFD3 /* PDApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 776099B21BA441A3009FEFD3 /* PDApi.m */; };
 		77D619661BA287CB004B7096 /* PDProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D619641BA287CB004B7096 /* PDProductListCell.m */; };
 		77D619671BA287CB004B7096 /* PDProductListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77D619651BA287CB004B7096 /* PDProductListCell.xib */; };
@@ -103,6 +105,10 @@
 		774A8BDA1BA18153001184D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		774A8BDC1BA1815E001184D3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		774A8BDE1BA18168001184D3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		775644701BA8329800147751 /* PDProductViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDProductViewModel.h; path = BuildCenter/Classes/Product/Api/PDProductViewModel.h; sourceTree = SOURCE_ROOT; };
+		775644711BA8329800147751 /* PDProductViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDProductViewModel.m; path = BuildCenter/Classes/Product/Api/PDProductViewModel.m; sourceTree = SOURCE_ROOT; };
+		775644741BA8330100147751 /* PDProductServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDProductServiceManager.h; sourceTree = "<group>"; };
+		775644751BA8330100147751 /* PDProductServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDProductServiceManager.m; sourceTree = "<group>"; };
 		776099B11BA441A3009FEFD3 /* PDApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDApi.h; sourceTree = "<group>"; };
 		776099B21BA441A3009FEFD3 /* PDApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDApi.m; sourceTree = "<group>"; };
 		77D619631BA287CB004B7096 /* PDProductListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDProductListCell.h; path = ../../../PDProductListCell.h; sourceTree = "<group>"; };
@@ -289,6 +295,15 @@
 			path = ../lib;
 			sourceTree = "<group>";
 		};
+		775644731BA832EA00147751 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				775644741BA8330100147751 /* PDProductServiceManager.h */,
+				775644751BA8330100147751 /* PDProductServiceManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		776099A31BA429E9009FEFD3 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +356,7 @@
 				776099A91BA437DB009FEFD3 /* Controller */,
 				776099AA1BA437DB009FEFD3 /* View */,
 				776099AB1BA437DB009FEFD3 /* ViewModel */,
+				775644731BA832EA00147751 /* Manager */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -379,6 +395,8 @@
 		776099AB1BA437DB009FEFD3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				775644701BA8329800147751 /* PDProductViewModel.h */,
+				775644711BA8329800147751 /* PDProductViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -616,6 +634,7 @@
 				77D61A251BA2B585004B7096 /* SDWebImagePrefetcher.m in Sources */,
 				77D619971BA2AF93004B7096 /* Product.m in Sources */,
 				774A8BAF1BA17688001184D3 /* PDViewController.m in Sources */,
+				775644761BA8330100147751 /* PDProductServiceManager.m in Sources */,
 				774A8BAC1BA17688001184D3 /* AppDelegate.m in Sources */,
 				77D61A2C1BA2B585004B7096 /* UIView+WebCacheOperation.m in Sources */,
 				77D619FA1BA2B300004B7096 /* AFURLSessionManager.m in Sources */,
@@ -652,6 +671,7 @@
 				77D619D91BA2B2E6004B7096 /* NSObject+MJClass.m in Sources */,
 				77D619F51BA2B300004B7096 /* AFNetworkReachabilityManager.m in Sources */,
 				77D61A1E1BA2B585004B7096 /* NSData+ImageContentType.m in Sources */,
+				775644721BA8329800147751 /* PDProductViewModel.m in Sources */,
 				77D61A2A1BA2B585004B7096 /* UIImageView+HighlightedWebCache.m in Sources */,
 				77D619F91BA2B300004B7096 /* AFURLResponseSerialization.m in Sources */,
 				77D619D61BA2B2E6004B7096 /* MJProperty.m in Sources */,

@@ -70,11 +70,7 @@
   
   [self.headerDownLoadButton addTarget:self action:@selector(downLoadClick:) forControlEvents:UIControlEventTouchUpInside];
   
-
-
-  
 }
-
 
 - (void)loadData
 {
