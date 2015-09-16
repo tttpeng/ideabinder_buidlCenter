@@ -15,12 +15,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return _historyBuilds.count - 1;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-  return 1;
+  return [self.viewModel numberOfVersionRows];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -34,8 +29,7 @@
   
   PDProductVersionCell *cell = [PDProductVersionCell cellWithTableView:tableView];
   
-  Product *product = _historyBuilds[indexPath.row + 1];
-  cell.versionLabel.text = product.appVersionNo;
+  cell.versionLabel.text = [self.viewModel rightVersionAtIndex:indexPath.row];
   return cell;
   
 }

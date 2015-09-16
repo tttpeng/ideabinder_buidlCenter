@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "PDProductViewModel.h"
+
 
 @interface PDRightTableViewProtocol : NSObject
 <UITableViewDataSource, UITableViewDelegate>
@@ -16,4 +18,5 @@
 
 @property (nonatomic, strong) NSArray *historyBuilds;
 
+@property (nonatomic, strong) PDProductViewModel *viewModel;
 @end

@@ -34,7 +34,28 @@
     
     completion(nil);
   }];
+}
 
+- (void)getHistoryVersionWithAppKey:(NSString *)appKey completion:(void (^)(NSArray *))completion
+{
+  
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  
+  
+  NSDictionary *params = @{@"aKey":appKey,
+                           @"page":@"1",
+                           @"_api_key":@"33fb0e3ad622f13a130a056913a25fe1"};
+  
+  [manager POST:@"http://www.pgyer.com/apiv1/app/builds" parameters:params success:^ void(AFHTTPRequestOperation * operation, id result) {
+    
+    NSArray *dataArray = result[@"data"][@"list"];
+    NSArray *historyBuilds = [Product objectArrayWithKeyValuesArray:dataArray];
+    completion(historyBuilds);
+    
+  } failure:^void(AFHTTPRequestOperation * operation, NSError * error) {
+    completion(nil);
+    
+  }];
 }
 
 @end

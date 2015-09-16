@@ -17,7 +17,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return [self.viewModel numberKindsOfProducts];
+  return [self.viewModel numberKindsOfProducts] ;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

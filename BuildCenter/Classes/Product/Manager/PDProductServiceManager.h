@@ -13,4 +13,7 @@
 
 - (void)getAllProductList:(void (^)(NSArray *products))completion;
 
+- (void)getHistoryVersionWithAppKey:(NSString *)appKey
+                         completion:(void (^)(NSArray *historyBuilds))completion;
+
 @end

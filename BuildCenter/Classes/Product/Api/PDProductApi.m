@@ -26,6 +26,19 @@
 }
 
 
+- (void)loadHistoryVersionBulidsWithAppKey:(NSString *)appkey completion:(void(^)())completion
+{
+  [self.serviceManager getHistoryVersionWithAppKey:appkey completion:^(NSArray *historyBuilds) {
+    self.theNewProduct =  _historyBuilds[0];
+
+    NSMutableArray *tempArray = [NSMutableArray arrayWithArray:historyBuilds];
+    [tempArray removeObjectAtIndex:0];
+    _historyBuilds = tempArray;
+    _theNewProduct = historyBuilds[0];
+    completion();
+  }];
+}
+
 - (PDProductServiceManager *)serviceManager
 {
   if (!_serviceManager) {

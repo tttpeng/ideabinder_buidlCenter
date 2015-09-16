@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *rightTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerIconImageView;
 @property (weak, nonatomic) IBOutlet UIButton *headerDownLoadButton;
+@property (weak, nonatomic) IBOutlet UILabel *headerNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *headerVersionLabel;
 
 
 @property (nonatomic, strong) PDLeftTableViewProtocol  *leftProtocol;
@@ -37,6 +39,8 @@
 @property (nonatomic, assign) NSInteger index;
 
 @property (nonatomic, strong) PDProductViewModel *viewModel;
+
+@property (nonatomic, copy) NSString *downloadAppKey;
 
 
 @end
@@ -90,54 +94,40 @@
   [self.viewModel reloadAllProducts:^{
     [self.leftTableView reloadData];
     [self.leftTableView.header endRefreshing];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.leftTableView selectRowAtIndexPath:indexPath
+                                    animated:YES
+                              scrollPosition:UITableViewScrollPositionNone];
+    
+    [self leftViewClickAtIndex:0];
   }];
 }
 
 
-
-- (void)loadRightDataWithIndex:(NSInteger)index
+- (void)refreshHeaderView
 {
-  Product *product  =_products[index];
-  
-  NSString *iconStr   = [NSString stringWithFormat:@"http://7kttjt.com1.z0.glb.clouddn.com/image/view/app_icons/%@",product.appIcon];
-
-  [_headerIconImageView sd_setImageWithURL:[NSURL URLWithString:iconStr]
+  [self.headerIconImageView sd_setImageWithURL:[self.viewModel headerIconUrl]
                         placeholderImage:[UIImage imageNamed:@"default-icon"]];
-
-  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  self.headerNameLabel.text = [self.viewModel headerProductName];
+  self.headerVersionLabel.text = [self.viewModel headerVersion];
   
-  
-  NSDictionary *params = @{@"aKey":product.appKey,
-                           @"page":@"1",
-                           @"_api_key":@"33fb0e3ad622f13a130a056913a25fe1"};
-  
-  [manager POST:@"http://www.pgyer.com/apiv1/app/builds" parameters:params success:^ void(AFHTTPRequestOperation * operation, id result) {
-    
-    NSArray *dataArray = result[@"data"][@"list"];
-    _historyBuilds = [Product objectArrayWithKeyValuesArray:dataArray];
-    self.rightProtocol.historyBuilds = _historyBuilds;
-    [self.rightTableView reloadData];
-    
-    
-  } failure:^void(AFHTTPRequestOperation * operation, NSError * error) {
-    
-  }];
+  self.downloadAppKey = [self.viewModel downloadAppkey];
 }
-
 
 - (void)downLoadClick:(UIButton *)sender
 {
-  Product *product = _products[_index];
-  NSString *path = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/%@",product.appKey];
+  NSString *path = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/%@",self.downloadAppKey];
   NSURL* nsUrl = [NSURL URLWithString:path];
-  [[UIApplication sharedApplication] openURL:nsUrl];
-  
+  [[UIApplication sharedApplication] openURL:nsUrl];  
 }
 
 - (void)leftViewClickAtIndex:(NSInteger)index
 {
-  [self loadRightDataWithIndex:index];
-  _index = index;
+  [self.viewModel reloadHistoryBuildsWithIndex:index completion:^{
+    [self.rightTableView reloadData];
+    [self refreshHeaderView];
+  }];
 }
 
 
@@ -158,6 +148,7 @@
 {
   if (!_rightProtocol) {
     _rightProtocol = [[PDRightTableViewProtocol alloc] init];
+    _rightProtocol.viewModel = self.viewModel;
 
   }
   return _rightProtocol;
