@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 

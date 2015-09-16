@@ -30,10 +30,18 @@
   PDProductVersionCell *cell = [PDProductVersionCell cellWithTableView:tableView];
   
   cell.versionLabel.text = [self.viewModel rightVersionAtIndex:indexPath.row];
+  [cell. downloadButton addTarget:self action:@selector(downloadButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+  
+  cell.downloadButton.tag = indexPath.row;
   return cell;
   
 }
 
+
+- (void)downloadButtonClick:(UIButton *)button
+{
+  [[UIApplication sharedApplication] openURL:[self.viewModel rightDownloadUrlAtIndex:button.tag]];
+}
 
 
 @end

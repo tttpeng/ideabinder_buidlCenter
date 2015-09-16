@@ -20,7 +20,7 @@
 
 - (NSInteger)numberOfVersionRows;
 - (NSString *)rightVersionAtIndex:(NSInteger)index;
-
+- (NSURL *)rightDownloadUrlAtIndex:(NSInteger)index;
 
 
 - (NSString *)headerProductName;

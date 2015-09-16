@@ -78,6 +78,13 @@
   return product.appVersionNo;
 }
 
+- (NSURL *)rightDownloadUrlAtIndex:(NSInteger)index
+{
+  Product *product = self.api.historyBuilds[index];
+  NSString *path = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/%@",product.appKey];
+  NSURL *nsUrl  = [NSURL URLWithString:path];
+  return nsUrl;
+}
 
 
 - (NSString *)headerProductName
@@ -92,10 +99,9 @@
 {
   NSString *iconStr   = [NSString stringWithFormat:
                           @"http://7kttjt.com1.z0.glb.clouddn.com/image/view/app_icons/%@",
-                          self.api.theNewProduct.appIcon];
+                          self.api.theNewProduct];
   return [NSURL URLWithString:iconStr];  
 }
-
 
 - (NSString *)downloadAppkey;
 {

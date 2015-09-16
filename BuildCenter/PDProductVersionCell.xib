@@ -21,7 +21,7 @@
                             <constraint firstAttribute="height" constant="21" id="Yyn-lv-LMl"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcw-S7-xKc">
@@ -43,6 +43,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="downloadButton" destination="dcw-S7-xKc" id="Mi3-Yk-uR0"/>
                 <outlet property="versionLabel" destination="lOM-CM-HBs" id="Bzj-dJ-pOg"/>
             </connections>
             <point key="canvasLocation" x="561" y="421.5"/>

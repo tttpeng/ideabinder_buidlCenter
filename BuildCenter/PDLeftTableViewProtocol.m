@@ -42,6 +42,7 @@
                         placeholderImage:[UIImage imageNamed:@"default-icon"]];
   
   cell.versionLabel.text = [self.viewModel leftVersionStrAtIndex:indexPath.row];
+
   
   return cell;
   
