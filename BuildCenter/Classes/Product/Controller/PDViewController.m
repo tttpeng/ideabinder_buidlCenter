@@ -117,7 +117,7 @@
 
 - (void)downLoadClick:(UIButton *)sender
 {
-  NSString *path = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/%@",self.downloadAppKey];
+  NSString *path = [NSString stringWithFormat:@"%@%@",kDownloadDefaultURL,self.downloadAppKey];
   NSURL* nsUrl = [NSURL URLWithString:path];
   [[UIApplication sharedApplication] openURL:nsUrl];  
 }

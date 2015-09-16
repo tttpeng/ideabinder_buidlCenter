@@ -45,7 +45,7 @@
   
   Product *product = self.api.products[index];
   NSString *iconStr   = [NSString stringWithFormat:
-                         @"http://7kttjt.com1.z0.glb.clouddn.com/image/view/app_icons/%@",
+                         @"%@/%@",kIconDefaultURL,
                          product.appIcon];
   return [NSURL URLWithString:iconStr];
 }
@@ -81,7 +81,7 @@
 - (NSURL *)rightDownloadUrlAtIndex:(NSInteger)index
 {
   Product *product = self.api.historyBuilds[index];
-  NSString *path = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/%@",product.appKey];
+  NSString *path = [NSString stringWithFormat:@"%@%@",kDownloadDefaultURL,product.appKey];
   NSURL *nsUrl  = [NSURL URLWithString:path];
   return nsUrl;
 }
@@ -97,9 +97,7 @@
 }
 - (NSURL *)headerIconUrl
 {
-  NSString *iconStr   = [NSString stringWithFormat:
-                          @"http://7kttjt.com1.z0.glb.clouddn.com/image/view/app_icons/%@",
-                          self.api.theNewProduct];
+  NSString *iconStr   = [NSString stringWithFormat:@"%@%@",kIconDefaultURL,self.api.theNewProduct];
   return [NSURL URLWithString:iconStr];  
 }
 

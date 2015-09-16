@@ -1,0 +1,21 @@
+//
+//  BuildCenter-Prefix.pch
+//  BuildCenter
+//
+//  Created by Peng Tao on 15/9/16.
+//  Copyright (c) 2015年 Peng Tao. All rights reserved.
+//
+
+#ifndef BuildCenter_BuildCenter_Prefix_pch
+#define BuildCenter_BuildCenter_Prefix_pch
+
+
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "ModelConstants.h"
+
+
+
+
+#endif
