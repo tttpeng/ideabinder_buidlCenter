@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PDApi : NSObject
+@interface PDProductApi : NSObject
 
+@property (nonatomic, strong) NSArray *products;
+
+- (void)loadNewProducts:(void(^)())completion;
 @end

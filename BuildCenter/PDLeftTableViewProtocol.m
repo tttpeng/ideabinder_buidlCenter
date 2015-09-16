@@ -17,7 +17,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return _products.count;
+  return [self.viewModel numberKindsOfProducts];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -36,16 +36,12 @@
   
   PDProductListCell *cell = [PDProductListCell cellWithTableView:tableView];
   
-  Product *product    = _products[indexPath.row];
-  cell.nameLabel.text = product.appName;
+  cell.nameLabel.text = [self.viewModel leftProductNameAtIndex:indexPath.row];
   
-  NSString *iconStr   = [NSString stringWithFormat:@"http://7kttjt.com1.z0.glb.clouddn.com/image/view/app_icons/%@",product.appIcon];
-  
-  [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:iconStr]
+  [cell.iconImageView sd_setImageWithURL:[self.viewModel leftIconUrlAtIndex:indexPath.row]
                         placeholderImage:[UIImage imageNamed:@"default-icon"]];
   
-
-  cell.versionLabel.text = product.appVersion;
+  cell.versionLabel.text = [self.viewModel leftVersionStrAtIndex:indexPath.row];
   
   return cell;
   

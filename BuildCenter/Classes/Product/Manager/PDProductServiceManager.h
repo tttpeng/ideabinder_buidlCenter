@@ -10,4 +10,7 @@
 
 @interface PDProductServiceManager : NSObject
 
+
+- (void)getAllProductList:(void (^)(NSArray *products))completion;
+
 @end

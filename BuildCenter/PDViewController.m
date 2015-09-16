@@ -16,6 +16,10 @@
 
 #import "UIImageView+WebCache.h"
 
+#import "PDProductViewModel.h"
+
+#import "MJRefresh.h"
+
 @interface PDViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *downloadBtn;
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
@@ -31,6 +35,8 @@
 @property (nonatomic, strong) NSArray *historyBuilds;
 
 @property (nonatomic, assign) NSInteger index;
+
+@property (nonatomic, strong) PDProductViewModel *viewModel;
 
 
 @end
@@ -70,29 +76,20 @@
   
   [self.headerDownLoadButton addTarget:self action:@selector(downLoadClick:) forControlEvents:UIControlEventTouchUpInside];
   
+  self.leftTableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  [self.leftTableView.header beginRefreshing];
 }
 
 - (void)loadData
 {
-  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-  
-  NSDictionary *params = @{@"uKey":@"0eb9d8944087d49316360624304e66d1",
-                           @"page":@"1",
-                           @"_api_key":@"33fb0e3ad622f13a130a056913a25fe1"};
-  
-  [manager POST:@"http://www.pgyer.com/apiv1/user/listMyPublished" parameters:params success:^ void(AFHTTPRequestOperation * operation, id result) {
-    
-    NSArray *dataArray = result[@"data"][@"list"];
-    _products = [Product objectArrayWithKeyValuesArray:dataArray];
-    self.leftProtocol.products = _products;
+  [self.viewModel reloadAllProducts:^{
     [self.leftTableView reloadData];
-    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.leftTableView selectRowAtIndexPath:index animated:YES scrollPosition:UITableViewScrollPositionNone];
-    [self leftViewClickAtIndex:0];
-    
-    
-  } failure:^void(AFHTTPRequestOperation * operation, NSError * error) {
-    
+    [self.leftTableView.header endRefreshing];
   }];
 }
 
@@ -152,6 +149,7 @@
   if (!_leftProtocol) {
     _leftProtocol = [[PDLeftTableViewProtocol alloc] init];
     _leftProtocol.controller = self;
+    _leftProtocol.viewModel = self.viewModel;
   }
   return _leftProtocol;
 }
@@ -160,7 +158,17 @@
 {
   if (!_rightProtocol) {
     _rightProtocol = [[PDRightTableViewProtocol alloc] init];
+
   }
   return _rightProtocol;
+}
+
+
+- (PDProductViewModel *)viewModel
+{
+  if (!_viewModel) {
+    _viewModel = [[PDProductViewModel alloc] init];
+  }
+  return _viewModel;
 }
 @end
