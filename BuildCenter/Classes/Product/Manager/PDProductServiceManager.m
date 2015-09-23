@@ -19,9 +19,9 @@
 {
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
   
-  NSDictionary *params = @{@"uKey":@"0eb9d8944087d49316360624304e66d1",
+  NSDictionary *params = @{@"uKey":kUserKey,
                            @"page":@"1",
-                           @"_api_key":@"33fb0e3ad622f13a130a056913a25fe1"};
+                           @"_api_key":kApiKey};
   
   [manager POST:@"http://www.pgyer.com/apiv1/user/listMyPublished" parameters:params success:^ void(AFHTTPRequestOperation * operation, id result) {
     
@@ -38,13 +38,11 @@
 
 - (void)getHistoryVersionWithAppKey:(NSString *)appKey completion:(void (^)(NSArray *))completion
 {
-  
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-  
-  
+
   NSDictionary *params = @{@"aKey":appKey,
                            @"page":@"1",
-                           @"_api_key":@"33fb0e3ad622f13a130a056913a25fe1"};
+                           @"_api_key":kApiKey};
   
   [manager POST:@"http://www.pgyer.com/apiv1/app/builds" parameters:params success:^ void(AFHTTPRequestOperation * operation, id result) {
     

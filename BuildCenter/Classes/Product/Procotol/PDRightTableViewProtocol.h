@@ -15,7 +15,6 @@
 @interface PDRightTableViewProtocol : NSObject
 <UITableViewDataSource, UITableViewDelegate>
 
-
 @property (nonatomic, strong) NSArray *historyBuilds;
 
 @property (nonatomic, strong) PDProductViewModel *viewModel;
