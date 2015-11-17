@@ -27,4 +27,5 @@
 - (NSString *)headerVersion;
 - (NSURL *)headerIconUrl;
 - (NSString *)downloadAppkey;
+- (NSString *)headerDataString;
 @end

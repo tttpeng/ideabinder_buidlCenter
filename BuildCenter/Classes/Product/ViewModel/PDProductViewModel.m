@@ -86,6 +86,10 @@
   return nsUrl;
 }
 
+- (NSString *)headerDataString
+{
+  return self.api.theNewProduct.appCreated;
+}
 
 - (NSString *)headerProductName
 {

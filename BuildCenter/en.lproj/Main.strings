@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "工作中心"; ObjectID = "Ixa-1L-daK"; */
+"Ixa-1L-daK.text" = "工作中心";
+
+/* Class = "UILabel"; text = "版本：2.0.0911.1003"; ObjectID = "OFQ-k2-fVD"; */
+"OFQ-k2-fVD.text" = "版本：2.0.0911.1003";
+
+/* Class = "UILabel"; text = "ideabinder-BuildCenter"; ObjectID = "Y0P-E0-NOy"; */
+"Y0P-E0-NOy.text" = "ideabinder-BuildCenter";
+
+/* Class = "UILabel"; text = "《工作中心》ideabinder 是一家专注于生命科学行业的移动云计算公司，通过一系列移动应用软件，及云计算平台，帮助生命科学行业企业（医药、医疗器材等企业）的销售团队从关系型向专业型升级。ideabinder 的产品始终坚持“移动为先”的设计理念，以最贴切生命科学行业一线业务需求、良好的用户体验、灵活的扩展及伸缩性、对销量提升极为有效的直接作用，逐渐得到众多生命科学行业企业的认可。"; ObjectID = "vJe-Ug-nYd"; */
+"vJe-Ug-nYd.text" = "《工作中心》ideabinder 是一家专注于生命科学行业的移动云计算公司，通过一系列移动应用软件，及云计算平台，帮助生命科学行业企业（医药、医疗器材等企业）的销售团队从关系型向专业型升级。ideabinder 的产品始终坚持“移动为先”的设计理念，以最贴切生命科学行业一线业务需求、良好的用户体验、灵活的扩展及伸缩性、对销量提升极为有效的直接作用，逐渐得到众多生命科学行业企业的认可。";
+
+/* Class = "UIButton"; normalTitle = "下载"; ObjectID = "xey-3a-bu3"; */
+"xey-3a-bu3.normalTitle" = "下载";

@@ -19,6 +19,8 @@
 #import "PDProductViewModel.h"
 
 #import "MJRefresh.h"
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
 
 @interface PDViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *downloadBtn;
@@ -28,7 +30,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *headerDownLoadButton;
 @property (weak, nonatomic) IBOutlet UILabel *headerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *headerVersionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sendBuild;
 
+@property (weak, nonatomic) IBOutlet UILabel *headerDateLabel;
 
 @property (nonatomic, strong) PDLeftTableViewProtocol  *leftProtocol;
 @property (nonatomic, strong) PDRightTableViewProtocol *rightProtocol;
@@ -41,6 +45,8 @@
 @property (nonatomic, strong) PDProductViewModel *viewModel;
 
 @property (nonatomic, copy) NSString *downloadAppKey;
+
+@property (nonatomic, strong) SVProgressHUD *hub;
 
 
 @end
@@ -79,6 +85,7 @@
   [self loadData];
   
   [self.headerDownLoadButton addTarget:self action:@selector(downLoadClick:) forControlEvents:UIControlEventTouchUpInside];
+  [self.sendBuild addTarget:self action:@selector(sendBuildClick:) forControlEvents:UIControlEventTouchUpInside];
   
   self.leftTableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
 }
@@ -107,10 +114,17 @@
 
 - (void)refreshHeaderView
 {
+  if ([[self.viewModel headerProductName] isEqualToString:@"iDAREP"]) {
+    self.sendBuild.hidden = NO;
+  }
+  else {
+    self.sendBuild.hidden = YES;
+  }
   [self.headerIconImageView sd_setImageWithURL:[self.viewModel headerIconUrl]
-                        placeholderImage:[UIImage imageNamed:@"default-icon"]];
+                              placeholderImage:[UIImage imageNamed:@"default-icon"]];
   self.headerNameLabel.text = [self.viewModel headerProductName];
   self.headerVersionLabel.text = [self.viewModel headerVersion];
+  self.headerDateLabel.text = [self.viewModel headerDataString];
   
   self.downloadAppKey = [self.viewModel downloadAppkey];
 }
@@ -119,9 +133,47 @@
 {
   NSString *path = [NSString stringWithFormat:@"%@%@",kDownloadDefaultURL,self.downloadAppKey];
   NSURL* nsUrl = [NSURL URLWithString:path];
-  [[UIApplication sharedApplication] openURL:nsUrl];  
+  [[UIApplication sharedApplication] openURL:nsUrl];
 }
 
+- (void)sendBuildClick:(UIButton *)button
+{
+  [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+  [SVProgressHUD showInfoWithStatus:@"正在准备发布。。。"];
+  
+  [self postBuildNotification];
+}
+
+
+- (void)postBuildNotification
+{
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  
+  manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+  [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:@"ideabinder" password:@"ideabinder"];
+  
+  [manager POST:@"http://ideabinder.tunnel.tttpeng.com/view/Customized/job/iDAREP/build" parameters:nil success:^ void(AFHTTPRequestOperation * operation, id result) {
+    
+    
+    if (operation.response.statusCode == 201) {
+      [SVProgressHUD showSuccessWithStatus:@"Build正在发布,请等待推送消息"];
+    }
+    else {
+      [SVProgressHUD showErrorWithStatus:@"发布失败请重试"];
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+      [SVProgressHUD dismiss];
+    });
+  } failure:^void(AFHTTPRequestOperation * operation, NSError * error) {
+    [SVProgressHUD showErrorWithStatus:@"发布失败请重试"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+      [SVProgressHUD dismiss];
+    });
+    
+  }];
+  
+  
+}
 - (void)leftViewClickAtIndex:(NSInteger)index
 {
   [self.viewModel reloadHistoryBuildsWithIndex:index completion:^{
@@ -149,7 +201,7 @@
   if (!_rightProtocol) {
     _rightProtocol = [[PDRightTableViewProtocol alloc] init];
     _rightProtocol.viewModel = self.viewModel;
-
+    
   }
   return _rightProtocol;
 }
