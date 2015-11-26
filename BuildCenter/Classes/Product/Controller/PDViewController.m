@@ -114,17 +114,21 @@
 
 - (void)refreshHeaderView
 {
-  if ([[self.viewModel headerProductName] isEqualToString:@"iDAREP"]) {
+  if ([[self.viewModel headerAppIdentifier] isEqualToString:@"com.ideabinder.salesMOUD.WorkingCenterRep"] || [[self.viewModel headerProductName] isEqualToString:@"iDA DM"]) {
     self.sendBuild.hidden = NO;
   }
   else {
     self.sendBuild.hidden = YES;
   }
+  self.headerIconImageView.layer.cornerRadius  = 30;
+  self.headerIconImageView.layer.masksToBounds = YES;
+
   [self.headerIconImageView sd_setImageWithURL:[self.viewModel headerIconUrl]
                               placeholderImage:[UIImage imageNamed:@"default-icon"]];
-  self.headerNameLabel.text = [self.viewModel headerProductName];
+  
+  self.headerNameLabel.text    = [self.viewModel headerProductName];
   self.headerVersionLabel.text = [self.viewModel headerVersion];
-  self.headerDateLabel.text = [self.viewModel headerDataString];
+  self.headerDateLabel.text    = [self.viewModel headerDataString];
   
   self.downloadAppKey = [self.viewModel downloadAppkey];
 }
@@ -139,9 +143,17 @@
 - (void)sendBuildClick:(UIButton *)button
 {
   [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-  [SVProgressHUD showInfoWithStatus:@"正在准备发布。。。"];
   
-  [self postBuildNotification];
+  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要发布新Build吗？" preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self postBuildNotification];
+  }];
+  UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    
+  }];
+  [alertController addAction:action];
+  [alertController addAction:cancelAction];
+  [self presentViewController:alertController animated:YES completion:nil];
 }
 
 
@@ -151,8 +163,17 @@
   
   manager.responseSerializer = [AFHTTPResponseSerializer serializer];
   [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:@"ideabinder" password:@"ideabinder"];
+
+  NSString *url;
+  if ([[self.viewModel headerAppIdentifier] isEqualToString:@"com.ideabinder.salesMOUD.WorkingCenterRep"]) {
+    url = @"http://ideabinder.tunnel.tttpeng.com/view/Customized/job/iDAREP/build";
+  }
+  if ([[self.viewModel headerAppIdentifier] isEqualToString:@"com.ideabinder.xjp.remicade"]) {
+    url = @"http://ideabinder.tunnel.tttpeng.com/view/Customized/job/iDADSM/build";
+  }
+  [SVProgressHUD show];
   
-  [manager POST:@"http://ideabinder.tunnel.tttpeng.com/view/Customized/job/iDAREP/build" parameters:nil success:^ void(AFHTTPRequestOperation * operation, id result) {
+  [manager POST:url parameters:nil success:^ void(AFHTTPRequestOperation * operation, id result) {
     
     
     if (operation.response.statusCode == 201) {

@@ -28,4 +28,6 @@
 - (NSURL *)headerIconUrl;
 - (NSString *)downloadAppkey;
 - (NSString *)headerDataString;
+
+- (NSString *)headerAppIdentifier;
 @end

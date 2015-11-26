@@ -40,6 +40,10 @@
 {
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
+  if (!appKey) {
+    completion(nil);
+    return;
+  }
   NSDictionary *params = @{@"aKey":appKey,
                            @"page":@"1",
                            @"_api_key":kApiKey};

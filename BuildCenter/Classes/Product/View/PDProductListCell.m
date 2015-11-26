@@ -19,7 +19,10 @@
   if (!cell) {
     cell = [[PDProductListCell alloc] init];
     cell = [[NSBundle mainBundle] loadNibNamed:@"PDProductListCell" owner:nil options:nil][0];
+    cell.iconImageView.layer.cornerRadius = 10;
+    cell.iconImageView.layer.masksToBounds = YES;
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
+
   }
   return cell;
 }

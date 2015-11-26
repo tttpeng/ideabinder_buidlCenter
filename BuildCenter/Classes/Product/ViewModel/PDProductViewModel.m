@@ -90,6 +90,10 @@
 {
   return self.api.theNewProduct.appCreated;
 }
+- (NSString *)headerAppIdentifier
+{
+  return self.api.theNewProduct.appIdentifier;
+}
 
 - (NSString *)headerProductName
 {
@@ -101,7 +105,7 @@
 }
 - (NSURL *)headerIconUrl
 {
-  NSString *iconStr   = [NSString stringWithFormat:@"%@%@",kIconDefaultURL,self.api.theNewProduct];
+  NSString *iconStr   = [NSString stringWithFormat:@"%@%@",kIconDefaultURL,self.api.theNewProduct.appIcon];
   return [NSURL URLWithString:iconStr];  
 }
 

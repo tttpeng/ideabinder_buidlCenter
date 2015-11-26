@@ -35,7 +35,7 @@
 {
   
   PDProductListCell *cell = [PDProductListCell cellWithTableView:tableView];
-  
+
   cell.nameLabel.text = [self.viewModel leftProductNameAtIndex:indexPath.row];
   
   [cell.iconImageView sd_setImageWithURL:[self.viewModel leftIconUrlAtIndex:indexPath.row]
