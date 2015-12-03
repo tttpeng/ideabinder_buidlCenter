@@ -756,6 +756,7 @@
 				TargetAttributes = {
 					774A8BA21BA17688001184D3 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 9W7CU3Q687;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1061,6 +1062,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BuildCenter/BuildCenter-Prefix.pch";

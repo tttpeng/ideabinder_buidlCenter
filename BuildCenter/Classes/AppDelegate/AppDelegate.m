@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "APService.h"
+#import "AFHTTPRequestOperationManager.h"
 
 @interface AppDelegate ()
 
@@ -55,6 +56,21 @@
   }
   
   
+  
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  
+  [manager.requestSerializer setValue:@"xXysn4VvGV6V8T6c8gsSn6bY" forHTTPHeaderField:@"X-LC-Id"];
+  [manager.requestSerializer setValue:@"sWuP8DeM7ltdzQqjR2USp0GD" forHTTPHeaderField:@"X-LC-Key"];
+
+  [manager GET:@"https://api.leancloud.cn/1.1/classes/Host" parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+
+    if (responseObject[@"results"]) {
+      NSString *string = responseObject[@"results"][0][@"host"];
+      NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
+      [userdefault setObject:string forKey:@"host"];
+    }
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+  }];
   
   
   

@@ -159,6 +159,10 @@
 
 - (void)postBuildNotification
 {
+  
+  NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
+  NSString *host = [userdefault objectForKey:@"host"];
+
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
   
   manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -166,10 +170,10 @@
 
   NSString *url;
   if ([[self.viewModel headerAppIdentifier] isEqualToString:@"com.ideabinder.salesMOUD.WorkingCenterRep"]) {
-    url = @"http://ideabinder.tunnel.tttpeng.com/view/Customized/job/iDAREP/build";
+    url = [NSString stringWithFormat:@"http://%@/view/Customized/job/iDAREP/build",host];
   }
   if ([[self.viewModel headerAppIdentifier] isEqualToString:@"com.ideabinder.xjp.remicade"]) {
-    url = @"http://ideabinder.tunnel.tttpeng.com/view/Customized/job/iDADSM/build";
+    url = [NSString stringWithFormat:@"http://%@/view/Customized/job/iDADSM/build",host];
   }
   [SVProgressHUD show];
   
