@@ -22,6 +22,7 @@
 
 - (void)reloadAllProducts:(void (^)())completion
 {
+
   [self.api loadNewProducts:^{
     completion();
   }];

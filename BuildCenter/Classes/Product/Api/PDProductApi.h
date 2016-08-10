@@ -11,6 +11,7 @@
 @class Product;
 @interface PDProductApi : NSObject
 
+@property (nonatomic, strong) NSMutableArray *mutableProducts;
 @property (nonatomic, strong) NSArray *products;
 @property (nonatomic, strong) NSArray *historyBuilds;
 @property (nonatomic, strong) Product *theNewProduct;

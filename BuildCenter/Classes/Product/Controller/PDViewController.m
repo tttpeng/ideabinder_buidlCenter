@@ -82,7 +82,7 @@
   [headerView addSubview:headerLabel];
   self.leftTableView.tableHeaderView = headerView;
   
-  [self loadData];
+//  [self loadData];
   
   [self.headerDownLoadButton addTarget:self action:@selector(downLoadClick:) forControlEvents:UIControlEventTouchUpInside];
   [self.sendBuild addTarget:self action:@selector(sendBuildClick:) forControlEvents:UIControlEventTouchUpInside];

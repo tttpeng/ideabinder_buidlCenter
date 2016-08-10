@@ -15,12 +15,12 @@
 @implementation PDProductServiceManager
 
 
-- (void)getAllProductList:(void (^)(NSArray *))completion
+- (void)getAllProductListByPageNumber:(NSInteger)page completion:(void (^)(NSArray *products, NSInteger page))completion;
 {
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
   
   NSDictionary *params = @{@"uKey":kUserKey,
-                           @"page":@"1",
+                           @"page":@(page),
                            @"_api_key":kApiKey};
   
   [manager POST:@"http://www.pgyer.com/apiv1/user/listMyPublished" parameters:params success:^ void(AFHTTPRequestOperation * operation, id result) {
@@ -28,11 +28,11 @@
     NSArray *dataArray = result[@"data"][@"list"];
     NSArray *products = [Product objectArrayWithKeyValuesArray:dataArray];
     
-    completion(products);
+    completion(products,page);
     
   } failure:^void(AFHTTPRequestOperation * operation, NSError * error) {
     
-    completion(nil);
+    completion(nil,0);
   }];
 }
 

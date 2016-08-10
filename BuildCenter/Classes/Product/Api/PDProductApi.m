@@ -19,21 +19,43 @@
 
 - (void)loadNewProducts:(void(^)())completion
 {
-  [self.serviceManager getAllProductList:^(NSArray *products) {
-    _products = products;
-    completion();
+  _mutableProducts = [NSMutableArray array];
+  [self loadProductsByPageNumber:0 completion:completion];
+}
+
+- (void)loadProductsByPageNumber:(NSInteger)pageNumber completion:(void(^)())completion
+{
+  [self.serviceManager getAllProductListByPageNumber:pageNumber
+                                          completion:
+   ^(NSArray *products, NSInteger page) {
+     if (products.count > 0) {
+       [_mutableProducts addObjectsFromArray:products];
+       [self loadProductsByPageNumber:page + 1 completion:completion];
+     }
+     else {
+       _products = _mutableProducts;
+       completion();
+     }
+    
   }];
 }
+
 
 - (void)loadHistoryVersionBulidsWithAppKey:(NSString *)appkey completion:(void(^)())completion
 {
   [self.serviceManager getHistoryVersionWithAppKey:appkey completion:^(NSArray *historyBuilds) {
-    self.theNewProduct =  historyBuilds[0];
-
+    if (historyBuilds.count > 0) {
+      self.theNewProduct =  historyBuilds[0];
+    }
+    
     NSMutableArray *tempArray = [NSMutableArray arrayWithArray:historyBuilds];
-    [tempArray removeObjectAtIndex:0];
-    _historyBuilds = tempArray;
-    _theNewProduct = historyBuilds[0];
+    if (tempArray.count > 0) {
+      [tempArray removeObjectAtIndex:0];
+      _historyBuilds = tempArray;
+    }
+    if (historyBuilds.count > 0) {
+      _theNewProduct = historyBuilds[0];
+    }
     completion();
   }];
 }
@@ -45,6 +67,7 @@
   }
   return _serviceManager;
 }
+
 
 
 @end

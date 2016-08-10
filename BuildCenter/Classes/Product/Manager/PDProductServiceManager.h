@@ -11,7 +11,7 @@
 @interface PDProductServiceManager : NSObject
 
 
-- (void)getAllProductList:(void (^)(NSArray *products))completion;
+- (void)getAllProductListByPageNumber:(NSInteger)page completion:(void (^)(NSArray *products, NSInteger page))completion;
 
 - (void)getHistoryVersionWithAppKey:(NSString *)appKey
                          completion:(void (^)(NSArray *historyBuilds))completion;
